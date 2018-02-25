@@ -42,7 +42,6 @@ public class Agent {
     public static short count = 0;
     public static short max_count = 0;
     public static short best_move[] = new short[2];
-    //public Queue<Pos> queue = new LinkedList<>();
     public static ArrayList<Pos> list = new ArrayList<>();
     public static ArrayList<Pos> best_list = new ArrayList<>();
     public static ArrayList<state> node = new ArrayList<>();
@@ -55,9 +54,6 @@ public class Agent {
 
         hw.read_file();
 
-        //hw.select_best_move();
-
-        //hw.create_levels();
         hw.minimax(null,(short)2);
         for (short i = 0; i < arr_size; i++) {
             for (short j = 0; j < arr_size; j++) {
@@ -65,8 +61,6 @@ public class Agent {
             }
             System.out.println();
         }
-        //hw.make_stars();
-        //hw.apply_gravity();
         System.out.println();
         System.out.println();
         
@@ -166,8 +160,6 @@ public class Agent {
         for (short i = 0; i < arr_size; i++) {
             for (short j = 0; j < arr_size; j++) {
                 if (visited[i][j] == false) {
-                    //iteration(i, j);
-                    //hw.create_levels(i,j);
                 }
             }
         }
@@ -237,8 +229,6 @@ public class Agent {
         make_stars(list);
         //node.add(new state(i,j,count));
         if (count > max_count) {
-            //best_move[0] = i;
-            //best_move[1] = j;
             copy_lists();
             max_count = count;
         }
