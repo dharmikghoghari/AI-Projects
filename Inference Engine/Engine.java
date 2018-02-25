@@ -1,6 +1,3 @@
-
-package hw3;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -39,7 +36,7 @@ class Sentence {
     }
 }
 
-public class homework {
+public class Engine {
 
     public int no_queries;
     public int no_statements;
@@ -56,7 +53,7 @@ public class homework {
 
     public static void main(String[] args) throws IOException 
     {
-        homework hw = new homework();
+        Engine hw = new Engine();
         hw.read_file();
         hw.queries_boolean = new boolean[hw.queries.size()];
         for (int i = 0; i < hw.queries.size(); i++) 
