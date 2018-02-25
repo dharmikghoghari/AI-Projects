@@ -1,4 +1,3 @@
-package homework1a;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -45,7 +44,7 @@ class position {
     }
 }
 
-public class homework {
+public class Techniques{
 
     public static short size = 0;
     public static short lizards = 0;
