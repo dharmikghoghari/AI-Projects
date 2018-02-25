@@ -1,5 +1,3 @@
-package Homework;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -33,7 +31,7 @@ class state {
     }
 }
 
-public class homework {
+public class Agent {
 
     public static short arr_size;
     public short no_fruits;
@@ -51,7 +49,7 @@ public class homework {
     public static short depth=2;
 
     public static void main(String[] args) throws IOException {
-        homework hw = new homework();
+        Agent hw = new Agent();
 
         hw.make_copy_matrix();
 
@@ -108,7 +106,7 @@ public class homework {
 
     public void apply_gravity() 
     {
-        homework hw = new homework();
+        Agent hw = new Agent();
         char temp = 0;
         for (short i = 0; i < arr_size; i++) 
         {
@@ -160,8 +158,6 @@ public class homework {
     }
 
     public ArrayList generate_next_moves(ArrayList<state> parent) {
-        //homework hw = new homework();
-        //make_copy_matrix();
         ArrayList<Pos> list=new ArrayList<>();
         
         apply_parent_on_matrix(parent);                 //also generate boolean
@@ -202,7 +198,7 @@ public class homework {
         count = 0;
         queue.add(current);
         visited[current.row][current.col] = true;
-        homework hw = new homework();
+        Agent hw = new Agent();
         short r = 0;
         short c = 0, val = 0;
         Pos temp;
@@ -257,7 +253,7 @@ public class homework {
     }
 
     public void read_file() throws FileNotFoundException, IOException {
-        FileReader fr = new FileReader("/Users/dharmik/NetBeansProjects/Homework/src/Homework/input.txt");
+        FileReader fr = new FileReader("input.txt");
         BufferedReader br = new BufferedReader(fr);
         InputStreamReader ir = new InputStreamReader(System.in);
         String line = new String();
@@ -286,7 +282,7 @@ public class homework {
 
     public void print_output() throws IOException 
     {
-        File fl = new File("/Users/dharmik/NetBeansProjects/Homework/src/Homework/output.txt");
+        File fl = new File("output.txt");
         PrintWriter output = new PrintWriter(new BufferedWriter(new FileWriter(fl, false)));
         for (short i = 0; i < arr_size; i++) {
             //output.write("\n");
