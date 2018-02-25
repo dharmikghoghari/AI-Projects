@@ -51,7 +51,7 @@ public class Techniques{
     public static String algo_type;
     public static short[][] matrix = new short[size][size];
     public static short[][] copy;
-    public static Queue<struct> queue = null;      //queue impementation
+    public static Queue<struct> queue = null;      
     public static Stack<struct> stack = null;
 
     ////////////////////////SA//////////////////
@@ -62,7 +62,6 @@ public class Techniques{
     public short counter = 3;
     public double temperature = 1.00;
     public double cooling_factor = 0.0005;
-    //public short matrix[][] = new short[size][size];//{{0,2,0,2,0},{2,2,0,0,2},{0,0,2,0,0},{2,2,0,2,2},{0,2,0,2,0}};//
     public short copy_SA[][] = new short[size][size];
 
     public Pos curr = null;
@@ -74,15 +73,10 @@ public class Techniques{
         struct current = new struct();
         init(current);
         queue.add(current);         //queue impemwntation
-        //stack.push(current);
-        //int counter=0;
-        //while(stack.peek()!= null)
+        
         while (queue.peek() != null) //queue impemwntation
         {
-            //if(queue.peek()== null)
-            //        break;
             current = queue.poll();           //queue impemwntation
-            //current = stack.pop();
             init(current);
             if (current.no_queens == lizards) {
                 break;
@@ -93,18 +87,7 @@ public class Techniques{
                 add_children_bfs(current, current.state.lastElement().row, current.state.lastElement().col);
 
             }
-            //counter++;
-//            System.out.println("c=" + counter);
-//            for(short k=0;k<size;k++)
-//            {
-//                for(short j=0;j<size;j++)
-//                {
-//                    System.out.print(matrix[k][j] +" ");
-//                }System.out.println("");
-//            }System.out.println("\n");
         }
-        // result = null;
-        //System.out.println("c=" + counter);
         if (current.no_queens == lizards) {
             print_output("OK");
         } else {
@@ -120,8 +103,6 @@ public class Techniques{
         stack.push(current);
         //int counter=0;
         while (stack.size() > 0) {
-            //if(stack.peek()== null)
-            //    break;
 
             current = stack.pop();
             init(current);
@@ -136,7 +117,6 @@ public class Techniques{
 
             }
         }
-        //System.out.println("Counter=" + counter);
         init(current);
         if (current.no_queens == lizards) {
             print_output("OK");
@@ -149,12 +129,9 @@ public class Techniques{
         long start_time = System.currentTimeMillis();
         homework tc = new homework();
             
-        
-        //matrix=new short[size][size]; 
         boolean flag = true;
         tc.init_SA();
         tc.place_liz();
-        //tc.curr = tc.list.get(tc.rando());
         tc.add_free();
         int count = 0;
         while (true) {
@@ -174,8 +151,6 @@ public class Techniques{
         } else {
             print_output("OK");
         }
-        //tc.print_mat();
-        //System.out.println("Count :" + count);
     }
 
     public static void main(String[] args) throws IOException {
@@ -190,15 +165,6 @@ public class Techniques{
         } else if(algo_type.equals("SA")){
             hw.sa_function();
         }
-
-        //System.out.println("-------------------------");
-        /*for (short k = 0; k < size; k++) {
-            for (short j = 0; j < size; j++) {
-                System.out.print(matrix[k][j] + " ");
-            }
-            System.out.println("");
-        }
-        System.out.println("\n");*/
     }
 
     public static void init(struct t) {
@@ -219,17 +185,6 @@ public class Techniques{
     }
 
     public static void add_first_bfs(struct t, short row, short col) {
-        /*for(short i=0;i<size;i++)
-        {
-            if(matrix[row][i]==0)
-            {
-                struct temp=new struct(t);
-                temp.no_queens=(short) (t.no_queens + 1);   
-                temp.state.add(new position(t.no_queens,i));
-                queue.add(temp);                //queue impementation
-                //stack.push(temp);
-            }
-        }*/
         boolean check = false;
         for (short i = 0; i < size; i++) {
             for (short j = 0; j < size; j++) {
@@ -238,7 +193,6 @@ public class Techniques{
                     temp.state.add(new position(i, j));
                     temp.no_queens = (short) (t.no_queens + 1);
                     queue.add(temp);            //queue impemwntation
-                    //stack.push(temp);
                     check = true;
                 }
             }
@@ -267,17 +221,6 @@ public class Techniques{
     }
 
     public static void add_children_bfs(struct t, short row, short col) {
-        /*for(short i=0;i<size;i++)                               //basic Queue and Stack Implementation.......
-        {
-            if(matrix[t.no_queens][i]==0 && is_safe(t.no_queens,i))
-            {
-                struct temp=new struct(t);
-                temp.state.add(new position(t.no_queens,i));
-                temp.no_queens=(t.no_queens + 1);
-                queue.add(temp);            //queue impemwntation
-                //stack.push(temp);
-            }
-        }*/
         short x = row;
         boolean check = false;
         if (col < size) {
@@ -288,7 +231,6 @@ public class Techniques{
                     temp.no_queens = (short) (t.no_queens + 1);
                     queue.add(temp);            //queue impemwntation
                     check = true;
-                    //stack.push(temp);
                 }
             }
         }
@@ -302,7 +244,6 @@ public class Techniques{
                     temp.state.add(new position(i, j));
                     temp.no_queens = (short) (t.no_queens + 1);
                     queue.add(temp);            //queue impemwntation
-                    //stack.push(temp);
                     check = true;
                 }
             }
@@ -522,9 +463,6 @@ public class Techniques{
             return true;
         }
         double C = Math.exp(-delta / temperature);
-        /*if (C > 1) {
-            System.out.println("Delta=" + delta + " Temperature" + temperature + "    C=" + C);
-        }*/
 
         double r = Math.random();
         if (r < C) {
@@ -779,9 +717,6 @@ public class Techniques{
                 }
             }
         }
-
-        //System.out.println("New_Conflicts :"+new_conflicts);
-        //return conflicts;
     }
 
     public void init() {
@@ -796,7 +731,6 @@ public class Techniques{
     public short rando_list(int high) {
         Random r = new Random();
         short low = 1;
-        //short high=lizards;
         return (short) (r.nextInt(high - low) + low);
     }
 
