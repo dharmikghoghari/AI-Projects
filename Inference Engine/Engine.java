@@ -784,7 +784,7 @@ public class Engine {
     }
 
     public void read_file() throws FileNotFoundException, IOException {
-        FileReader fr = new FileReader("/Users/dharmik/NetBeansProjects/Hw3/src/hw3/input.txt");
+        FileReader fr = new FileReader("input.txt");
         BufferedReader br = new BufferedReader(fr);
         InputStreamReader ir = new InputStreamReader(System.in);
         String line = new String();
@@ -804,7 +804,7 @@ public class Engine {
     }
     
     public void print_output(boolean[] bool) throws IOException {
-        File fl = new File("/Users/dharmik/NetBeansProjects/Hw3/src/hw3/output.txt");
+        File fl = new File("output.txt");
         PrintWriter output = new PrintWriter(new BufferedWriter(new FileWriter(fl, false)));
             for (short i = 0; i < bool.length; i++) 
             {
