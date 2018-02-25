@@ -1,5 +1,3 @@
-package Home;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -46,7 +44,7 @@ class state {
     }
 }
 
-public class homewor {
+public class Agent {
 
     public static int arr_size;
     public int no_fruits;
@@ -65,7 +63,7 @@ public class homewor {
         ThreadMXBean bean = ManagementFactory.getThreadMXBean();
         double start_time = bean.isCurrentThreadCpuTimeSupported() ? bean.getCurrentThreadCpuTime() : 0L;
         
-        homewor hw = new homewor();
+        Agent hw = new Agent();
         hw.read_file();
         hw.initialize_matrix();
         
@@ -409,7 +407,7 @@ public class homewor {
     }
 
     public void read_file() throws FileNotFoundException, IOException {
-        FileReader fr = new FileReader("/Users/dharmik/NetBeansProjects/Home/src/Home/input.txt");
+        FileReader fr = new FileReader("input.txt");
         BufferedReader br = new BufferedReader(fr);
         InputStreamReader ir = new InputStreamReader(System.in);
         String line = new String();
@@ -433,7 +431,7 @@ public class homewor {
     }
 
     public void print_output(Pos p) throws IOException {
-        File fl = new File("/Users/dharmik/NetBeansProjects/Home/src/Home/output.txt");
+        File fl = new File("output.txt");
         PrintWriter output = new PrintWriter(new BufferedWriter(new FileWriter(fl, false)));
         initialize_matrix();
         iterations(p.row,p.col);
