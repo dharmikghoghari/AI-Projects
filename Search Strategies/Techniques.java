@@ -351,7 +351,7 @@ public class Techniques{
     }
 
     public static void read_file() throws FileNotFoundException, IOException {
-        FileReader fr = new FileReader("/Users/dharmik/NetBeansProjects/Homework1a/src/homework1a/input.txt");
+        FileReader fr = new FileReader("input.txt");
         BufferedReader br = new BufferedReader(fr);
         InputStreamReader ir = new InputStreamReader(System.in);
         String line = new String();
@@ -409,7 +409,7 @@ public class Techniques{
     }
 
     public static void print_output(String result) throws IOException {
-        File fl = new File("/Users/dharmik/NetBeansProjects/Homework1a/src/homework1a/output.txt");
+        File fl = new File("output.txt");
         PrintWriter output = new PrintWriter(new BufferedWriter(new FileWriter(fl, false)));
 
         if (result.equals("OK")) {
